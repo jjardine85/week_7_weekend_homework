@@ -7,11 +7,15 @@ BeerDetailView.prototype.createBeerDetail = function (beer) {
   beerDetail.classList.add('beer-detail');
 
   const name = document.createElement('h3');
-  name.textContent = beer.name;
+  name.textContent = beer.name + ": " + beer.tagline;
   beerDetail.appendChild(name);
 
+  const img = document.createElement('img');
+  img.src = beer.image_url;
+  beerDetail.appendChild(img);
+
   const detailsList = document.createElement('ul');
-  const description = this.createDetailListItem('Meaning', this.description);
+  const description = this.createDetailListItem('Meaning', beer.description);
   detailsList.appendChild(description);
 
   beerDetail.appendChild(detailsList);
