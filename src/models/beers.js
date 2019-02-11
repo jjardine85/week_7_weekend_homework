@@ -14,7 +14,7 @@ Beers.prototype.getData = function () {
       PubSub.publish('beers:ready', this.beerData);
   })
     .catch((err) => {
-      PubSub.publish('Activity:error', err);
+      PubSub.publish('beers:error', err);
     });
 };
 

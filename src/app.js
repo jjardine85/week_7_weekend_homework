@@ -1,7 +1,8 @@
 const Beers = require('./models/beers.js');
 const BeerDetailView = require('./views/beer_detail_view.js');
-const SelectView = require('./views/select_view.js')
-const BeerListView = require('./views/beer_list_view.js')
+const SelectView = require('./views/select_view.js');
+const BeerListView = require('./views/beer_list_view.js');
+const Error = require('./views/error.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const listContainer = document.querySelector('#beer-list');
@@ -10,4 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const beers = new Beers;
   beers.getData();
+
+  const error = new Error(listContainer);
+  error.bindEvents();
 })
